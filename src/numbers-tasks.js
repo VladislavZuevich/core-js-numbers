@@ -184,9 +184,11 @@ getParallelepipedDiagonal();
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const power = 10 ** pow;
+  return Math.round(num / power) * power;
 }
+roundToPowerOfTen();
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -205,10 +207,27 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
-}
+function isPrime(n) {
+  if (n <= 1) {
+    return false;
+  }
 
+  if (n === 2) {
+    return true;
+  }
+
+  if (n % 2 === 0) {
+    return false;
+  }
+  for (let i = 3; i <= Math.sqrt(n); i += 2) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+isPrime();
 /**
  * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
