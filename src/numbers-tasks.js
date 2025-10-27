@@ -107,10 +107,14 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const vectorModule1 = Math.sqrt(x1 ** 2 + x2 ** 2);
+  const vectorModule2 = Math.sqrt(y1 ** 2 + y2 ** 2);
+  const costheta = dotProduct / (vectorModule1 * vectorModule2);
+  return Math.acos(Math.min(Math.max(costheta, -1), 1));
 }
-
+getAngleBetweenVectors();
 /**
  * Returns a last digit of a integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
@@ -124,9 +128,10 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
+getLastDigit();
 
 /**
  * Returns a number by given string representation.
